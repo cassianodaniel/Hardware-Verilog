@@ -1,0 +1,61 @@
+//https://sig-arq.ufpb.br/arquivos/2019130058d18817133245a16b4b97c00/CL2-Aula03-Introduc807a771oVerilog-Parte2-EudisAnjos_compressed.pdf
+
+module EXEMPLO_AND ( x, y, out); // declaração do nome do módulo AND
+input wire x, y; // entrada de dados - um bit
+output wire out; // saída de dados - um bit
+assign out = x & y; // circuito AND utilizando a chamada assign em Verilog
+endmodule // final do módulo AND
+
+/*or or1 (S,a,b);
+s = a | b;*/
+
+S = {2{1'b1'}} //concatenar 2x 1bit binário 1 1
+S = 2'b11; // 2bits binários "11"
+Se S for de 3 bits, S = 011; (não há declaração/=0)
+
+declaração de vetores:
+//WIRE quantidade_de_bits_x:x_ var1; 
+//REG quantidade_de_bits_x:x_ var2;
+
+declaração de tamanho:
+wire [0:9]var1 = de 0 a 9, 10 bits
+wire [9:0]var2 = ";
+
+//[0:9] está indo do menor para o maior: big endian
+// 0 1 2 3 4 5 6 7 8 9 (big endian);
+
+//[9:0] little endian
+// 9 8 7 6 5 4 3 2 1 (little endian);
+
+wire a; //vetor "a" com um bit
+wire a[0:25]; //vetor de 26 bits;
+
+// para acessar apenas espaços específicos dos vetores:
+wire a[0:7];
+a[6:9] = atribuição; /* OU */ atribuição = a[6:9];
+
+a[6+2] = pegue de a[6] a a[8] = a[6,7,8];
+
+//OS VETORES SÃO DECLARADOS ATRÁS DA VARIÁVEL: [2:0]X;
+//OS ARRAYS SÃO DECLARADOS APÓS A VARIÁVEL: X[2:0];
+
+//VETORES NÃO MISTURAM TIPOS DE DADOS (NEM ARRAY DE VETORES)
+//ARRAYS MISTURAM TIPOS DE DADOS
+
+ARRAY_INT[3:0][7:0]; //DECLARAÇÃO DE UM ARRAY MULTIDIMENSIONAL - PODE-SE DECLARAR TIPOS DIFERENTES DENTRO DO SEGUNDO ARRAY
+
+reg [63:0] array_4d [15:0][7:0][7:0][255:0]; //array de 4 dimensões em que cada bit de cada dimensão possui reg[63:0]
+
+parameter port_id = 5; // Define uma constante port_id como o DEFINE em C;
+
+reg [8* 18:0] string_value; //registrador string_value com 19 bits em que cada bit tem 8 bits; 
+
+//OBS: CADA CARACTER %s EM UMA STRING UTILIZA 8 BYTES
+//OBS: CADA CARACTER %d EM UMA STRING UTILIZA 4 BYTES
+
+SISTEMA DE TAREFAS: $TAREFA
+$display(p1, p2, p3,....., pn); //como se fosse um printf em C
+$monitor(p1,p2,p3,....,pn); ($monitoron / $monitoroff) //Monitora Variáveis
+$stop; //para a simulação para debug
+$finish; //finaliza a simulação
+
