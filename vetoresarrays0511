@@ -28,15 +28,15 @@ wire [9:0]var2 = ";
 // 9 8 7 6 5 4 3 2 1 (little endian);
 
 wire a; //vetor "a" com um bit
-wire a[0:25]; //vetor de 26 bits;
+wire a[0:25]; //ARRAY de 26 bits;
 
-// para acessar apenas espaços específicos dos vetores:
+// para acessar apenas espaços específicos dos ARRAYS:
 wire a[0:7];
 a[6:9] = atribuição; /* OU */ atribuição = a[6:9];
 
 a[6+2] = pegue de a[6] a a[8] = a[6,7,8];
 
-//OS VETORES SÃO DECLARADOS ATRÁS DA VARIÁVEL: [2:0]X;
+//OS VETORES SÃO DECLARADOS ANTES DA VARIÁVEL: [2:0]X;
 //OS ARRAYS SÃO DECLARADOS APÓS A VARIÁVEL: X[2:0];
 
 //VETORES NÃO MISTURAM TIPOS DE DADOS (NEM ARRAY DE VETORES)
