@@ -1,0 +1,54 @@
+module <mealy1001>
+input clk, inp, reset;
+output out;
+reg [2:0] state;
+parameter s0=0,s1=1,s2=2,s3=3;
+
+always@(posedgeclk,posedgeclear)
+begin
+if(reset)
+	begin
+	state <= s0;
+	out = 0;
+	end
+else
+	case(state)
+		s0:if(input)
+			begin
+			state <= s1;
+			output = 0;
+		end
+		else
+			begin
+			state <= s0;
+			output = 0;
+			end
+		s1:if(input)
+			begin
+			state <= s2;
+			output = 0;
+			end
+		else
+			begin
+			state <= s1;
+			output0;
+		s2:if(input)
+			begin
+			state <= s3;
+			output = 0;
+			end
+		else
+			begin
+			state <= s2;
+			output = 0;
+		s3:if(input)
+			begin
+			state <= s3;
+			output = 1;
+		else
+			begin
+			state <=s2;
+			output = 0;
+		end
+	endcase
+endmodule
